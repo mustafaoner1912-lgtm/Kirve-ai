@@ -1,0 +1,25 @@
+{
+  "name": "kirve-ai",
+  "version": "0.5.7",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check scripts/setup.mjs && node --check scripts/preflight.mjs && node --check public/app.js && node --check public/login.js && node --check public/sw.js && node scripts/verify.mjs",
+    "test": "node --test",
+    "audit": "npm audit --omit=dev --audit-level=high",
+    "preflight": "node scripts/preflight.mjs",
+    "start:production": "node scripts/preflight.mjs && node server.js",
+    "setup:local": "node scripts/setup.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "express-rate-limit": "8.7.3",
+    "helmet": "8.3.0",
+    "dotenv": "18.0.9"
+  },
+  "description": "Hardened Turkish personal AI agent PWA with encrypted storage and guarded tools."
+}

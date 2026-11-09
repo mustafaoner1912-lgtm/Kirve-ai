@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: kirve-ai
+    runtime: node
+    region: frankfurt
+    plan: starter
+    buildCommand: npm install --package-lock-only --ignore-scripts --no-audit --no-fund && npm ci --omit=dev --ignore-scripts --no-audit --no-fund && npm audit --omit=dev --audit-level=high
+    startCommand: npm run start:production
+    healthCheckPath: /health/ready
+    disk:
+      name: kirve-ai-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+      - key: OPENAI_MODEL
+        value: gpt-6-astra
+      - key: OPENAI_REASONING_EFFORT
+        value: high
+      - key: OPENAI_REALTIME_MODEL
+        value: gpt-realtime-2.1
+      - key: OPENAI_REALTIME_VOICE
+        value: marin
+      - key: ENABLE_WEB_SEARCH
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: STORE_ENCRYPTION_KEY
+        generateValue: true
+      - key: APP_PASSWORD
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
