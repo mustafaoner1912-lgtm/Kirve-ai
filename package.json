@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check scripts/setup.mjs && node --check scripts/preflight.mjs && node --check public/app.js && node --check public/login.js && node --check public/sw.js && node scripts/verify.mjs",
+    "check": "node --check server.js && node --check setup.mjs && node --check preflight.mjs && node --check app.js && node --check login.js && node --check sw.js && node verify.mjs",
     "test": "node --test",
     "audit": "npm audit --omit=dev --audit-level=high",
-    "preflight": "node scripts/preflight.mjs",
-    "start:production": "node scripts/preflight.mjs && node server.js",
-    "setup:local": "node scripts/setup.mjs"
+    "preflight": "node preflight.mjs",
+    "start:production": "node preflight.mjs && node server.js",
+    "setup:local": "node setup.mjs"
   },
   "engines": {
     "node": ">=22"
