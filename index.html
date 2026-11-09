@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b12"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="KİRVE AI">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/style.css?v=0.5.7">
+<title>KİRVE AI</title>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="orb"><span></span></div><div><div class="name">KİRVE <b>AI</b></div><div class="sub">KİŞİSEL YAPAY ZEKÂ AJANI</div></div></div>
+    <div class="top-actions"><button id="newChat" class="topbtn">＋ Yeni</button><button id="tasksToggle" class="topbtn">Alanım <b id="taskCount">0</b></button><button id="logout" class="iconbtn" aria-label="Çıkış">↗</button></div>
+  </header>
+  <main id="chat" class="chat">
+    <section class="welcome" id="welcome">
+      <div class="hero-orb"><span></span></div><p class="eyebrow">KİRVE AI · ÇEVRİMİÇİ ALTYAPI</p>
+      <h1>Buradayım,<br><em>kirve.</em></h1>
+      <p class="intro">Araştırma yaparım, görevlerini takip ederim ve izinli araçları kullanırım. Bugün neyi hallediyoruz?</p>
+      <div class="suggestions">
+        <button class="suggest" data-prompt="Bugün için kısa ve gerçekçi bir plan hazırla.">✦ Bugünümü planla</button>
+        <button class="suggest" data-prompt="Güncel bir konuda araştırma yap ve kaynakları göster.">⌕ Güncel araştırma yap</button>
+        <button class="suggest" data-prompt="KİRVE AI projesi için sıradaki geliştirme görevlerini listele.">⚡ Projeyi geliştir</button>
+      </div>
+      <p class="note">Önemli işlemler koruma altında · Hafıza sana ait</p>
+    </section>
+  </main>
+  <aside id="tasksPanel" class="tasks-panel" hidden>
+    <div class="panel-head"><div><b>Çalışma alanın</b><small id="memoryCount">Yükleniyor…</small></div><div class="panel-actions"><a id="backupDownload" href="/api/backup" download>Yedek al</a><button id="closeTasks" class="iconbtn" aria-label="Kapat">✕</button></div></div>
+    <div class="panel-tabs"><button id="tabTasks" class="selected">Görevler</button><button id="tabMemories">Hafıza</button><button id="tabChats">Geçmiş</button></div>
+    <div id="taskList" class="task-list"></div>
+    <div id="memoryList" class="task-list" hidden></div>
+    <div id="chatList" class="task-list" hidden></div>
+  </aside>
+  <div class="composer-wrap">
+    <div id="attachmentTray" class="attachment-tray" hidden></div>
+    <input id="filePicker" type="file" hidden multiple accept=".pdf,.doc,.docx,.rtf,.odt,.txt,.md,.json,.html,.xml,.js,.py,.sql,.log,.srt,.csv,.tsv,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp">
+    <div class="composer">
+      <button id="attach" class="toolbtn" aria-label="Dosya ekle" title="Dosya veya fotoğraf ekle">＋</button>
+      <button id="mic" class="toolbtn" aria-label="Canlı konuşmayı başlat veya bitir" title="Canlı konuşma">🎙</button>
+      <textarea id="prompt" rows="1" placeholder="Kirve'ye bir görev ver..." maxlength="6000"></textarea>
+      <button id="speaker" class="toolbtn" aria-label="Sesli yanıtı aç/kapat">🔈</button>
+      <button id="send" class="send" aria-label="Gönder">↑</button>
+    </div>
+    <div class="foot"><span id="status">Bağlantı kontrol ediliyor…</span><span>Mikrofon yalnızca canlı konuşmayı açınca kullanılır</span></div>
+  </div>
+</div>
+<script src="/app.js?v=0.5.7" defer></script>
+</body></html>
